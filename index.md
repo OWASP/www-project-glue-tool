@@ -5,52 +5,113 @@ title: OWASP Glue Tool
 tags: example-tag
 level: 0
 type: tool
-
-auto-migrated: 1
-auto-migrated: 1
-
-auto-migrated: 1
-
+pitch: The OWASP Glue Tool Project is a tools based project intended to make security automation easier. It is essentially a ruby gem that co-ordinates the running of different analysis tools and reporting from those tools.
 ---
 
+[![Twitter Follow](https://img.shields.io/twitter/follow/glue?style=social)](https://twitter.com/owaspglue)
 
-<!-- Standard Chapter Page Template
-This is an example of a Project or Chapter page.
-Please change these items to indicate the actual information you wish to present. In addition to this information, the 'front-matter' above the text should be modified to reflect your actual information.  An explanation of each of the front-matter items is below:
+The OWASP Glue Tool Project is a tools based project intended to make security automation easier. It is essentially a ruby gem that co-ordinates the running of different analysis tools and reporting from those tools.
+The purpose of the project is to make it easy to integrate security tools (like static or dynamic analysis) into the CI/CD pipeline.
 
-{front matter for this file}
+# FAQs
 
-```
-- layout: This is the layout used by project and chapter pages.  You should leave this value as col-sidebar
-- title: This is the title of your project or chapter page, usually the name.  For example, OWASP Zed Attack Proxy or OWASP Baltimore
-- tags: This is a space-delimited list of tags you associate with your project or chapter.  If you are using tabs, at least one of these tags should be unique in order to be used in the tabs files (an example tab is included in this repo) 
-- region: This is the region you are in according to our data
-```
+## What does Glue do?
 
-{copy for this file (index.md)}
-Replace the text above the commented area with your information in the format below:
-```
-## Welcome
-Include some information here about your chapter
+The OWASP Glue tool attempts to make it very easy to run different types
+of security tools at various stages of the software development process
+and produce unified issues that can be used in other contexts to track
+or remediate issues.
 
-## Participation
-The Open Web Application Security Project (OWASP) is a nonprofit foundation that works to improve the security of software. All of our projects ,tools, documents, forums, and chapters are free and open to anyone interested in improving application security. 
+## Why would I use Glue?
 
-Chapters are led by local leaders in accordance with the [Chapter Leader Handbook](/www-policy/rules-of-procedure/chapter-handbook). Financial contributions should only be made online using the authorized online donation button. To be a SPEAKER at ANY OWASP Chapter in the world simply review the [speaker agreement](/www-policy/speaker-agreement) and then contact the local chapter leader with details of what OWASP Project, independent research, or related software security topic you would like to present.
+To help get security feedback into your developers hands faster.
 
-Everyone is welcome and encouraged to participate in our [Projects](/projects), [Local Chapters](/chapters), [Events](/events), [Online Groups](https://groups.google.com/a/owasp.com/){:target='_blank'}, and [Community Slack Channel](https://owasp.slack.com/){:target='_blank'}. We especially encourage diversity in all our initiatives. OWASP is a fantastic place to learn about application security, to network, and even to build your reputation as an expert. We also encourage you to be [become a member](/membership) or consider a [donation](/donate) to support our ongoing work.
+## How can I participate in your project?
 
-## Local News
-- Meeting Location
-- Everyone is welcome to join us at our chapter meetings.
+Reach out to matt.konda@owasp.org with any questions or ideas or ideas
+about how to participate. We are welcoming input. We are following
+standard github workflow so you can fork the code and submit a pull
+request if you prefer. Alternatively, you can get more deeply involved
+and talk with us about roadmap and other items. And finally, you are
+always invited to our Slack channel.
 
-```
-{info.md}
+## If I am not a programmer can I participate in your project?
 
-This separate file is where you should place links to your Google Group and Meetup page. It will be automatically rendered in the column sidebar.
+Yes, you can certainly participate in the project if you are not a
+programmer or technical. The project needs different skills and
+expertise and different times during its development. Currently, we are
+looking for researchers, writers, graphic designers, and a project
+administrator. See the Road Map and Getting Involved tab for more
+details.
 
-{leaders.md}
+# Acknowledgements
 
-Another separate file that should simply include each leaders name with mailto link as a list. It will also be automatically rendered in the column sidebar.
+## Contributors
 
--->
+To this point, project contributors include:
+
+  - [Matt Konda](https://www.owasp.org/index.php/User:Matt_Konda)
+  - Rafael Zambrano
+  - Alex Lock
+  - Omer Levi Hevroni
+
+# Road Map and Getting Involved
+
+Deliverable: Glue is delivered as a ruby gem (executable binary) and in
+a docker image with required tools already bundled.
+
+## Roadmap
+
+Allows extending the tool more without changing code. Currently, it’s
+possible to integrate new tools without changing code, in the future we
+would like to add a similar support for reports and filters. Check out
+the open issues on GitHub. This is what we hope to achieve in future
+releases.
+
+## Getting Involved
+
+Involvement in the development and promotion of <strong>Glue</strong> is
+actively encouraged\! You do not have to be a security expert or a
+programmer to contribute. Some of the ways you can help are as follows:
+
+### Coding
+
+We could implement some of the later items on the roadmap sooner if
+someone wanted to help out with a unit or automated regression tests
+
+### Localization
+
+Are you fluent in another language? Can you help translate the text
+strings in the <strong>Tool Project Template</strong> into that
+language?
+
+### Testing
+
+Do you have a flair for finding bugs in software? We want to produce a
+high-quality product, so any help with Quality Assurance would be
+greatly appreciated. Let us know if you can offer your help.
+
+### Feedback
+
+Please use the [Tool Project Template project mailing
+list](https://lists.owasp.org/mailman/listinfo/OWASP_Tool_Project_Template)
+for feedback about:
+
+  - What do like?
+  - What don't you like?
+  - What features would you like to see prioritized on the roadmap?
+
+Alternativly, you can also use our Slack channel on OWASP slack.
+
+# Minimum Viable Product
+
+## Pipeline needs
+
+1\. Pull from github or a specified location on the file system 2. Run
+tools like brakeman, bundler-audit and owasp-dependency-check on the
+code. 3. Standardizes the format of results then reports them in text,
+csv, json or via JIRA's REST API. 4. Detect duplicates and won't report
+the same thing more than once.
+
+It also needs to be easy to set up the security tools and digest
+results. Hence a focus on docker.
